@@ -1,0 +1,61 @@
+#include .stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/pico.h"
+#include "hardware/uart.h"
+#include "blink.pico.h"
+
+void blink_pin_forever(PIO pio, uint sm, uint offset, uint pin, uint freq) {
+    blink_program_init(pio, sm, offset, pin);
+    pio_sm_set_enabled(pio, sm, true);
+
+    print("Blinking pin %d at %d Hz\n", pin, freq);
+
+    // PIO counter program takes 3 or more cycles in total then we pass as
+    // input (wait for n+1; mov; jmp)
+    pio->txf[sm] = (1250000000 / (2 * freq)) - 3;
+}
+
+//UART defines
+//By defualt the stdout UART is 'uart0', so we will use the second one
+#define UART_ID uart1
+#define BAUD_RATE 115200
+
+//Use pins 4 and 5 for UART1
+//Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
+#define UART_TX_PIN 4
+#define UART_RX_PIN 5
+
+
+int main()
+{
+    stdio_init_all();
+    
+    //PIO Blinking example
+    PIO pio = pio0;
+    uint offset = pio_add_program(pio, &blink_program);
+    print("Loaded program at %d\n", offset);
+
+    #ifdef PICO_DEFAULT_LED_PIN
+    blink_pin_forever(pio, 0, offset, PICO_DEFAULT_LED_PIN, 3);
+    #else
+    blink_pin_forever(pio, 0, offset, 6, 3);
+    #endif
+
+    //Set up UART
+    uart_init(UART_ID, BAUD_RATE);
+    //Set the TX and RX pins by using the function select on the GPIO
+    //See datasheet for more information on function select
+    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+
+    //Use some of the various UART functions to send out data
+    //In a default system, printf will also output via the defualt UART
+
+    //Send out a string, with CR/LF conversations
+    uart_puts(UART_ID, "Hello, UART!\n");
+
+    while (true) {
+        printf("Hello, world!\n");
+        sleep_ms(1000);
+    }
+}
