@@ -17,6 +17,7 @@ For the few who want to build this themselves, there will be a bit of hand wirin
 <img width="1085" height="722" alt="Modules" src="https://github.com/user-attachments/assets/f3f436d7-fd7a-445a-b18b-f5eb0f857d06" />
 
 Wiring Diagram:
+
 <img width="794" height="1123" alt="wiringdiagram" src="https://github.com/user-attachments/assets/b14cb6f2-e0c9-4c83-b2a4-6af15676458c" />
 
 <img width="747" height="627" alt="Layout" src="https://github.com/user-attachments/assets/00e11130-3d63-4006-af3f-df1f6009df94" />
