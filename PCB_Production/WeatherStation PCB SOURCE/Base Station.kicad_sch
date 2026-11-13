@@ -1,0 +1,52 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "af1bf0bc-a76a-4835-b419-d0304fe74462")
+	(paper "A4")
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 0.4572 0.4572) (xy 6.8072 0.4572)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bff3b8e-b493-4c9a-bc29-9068cea359db")
+	)
+	(wire
+		(pts
+			(xy 0.4572 0.4572) (xy 0.4572 2.9972)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99397629-0c12-43e4-b16a-efe0903ea11d")
+	)
+	(global_label "POE+"
+		(shape input)
+		(at 1.3494 2.6198 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6bf7778c-578a-4f04-9dce-40691d0824ed")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 9.6565 2.6198 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+)
