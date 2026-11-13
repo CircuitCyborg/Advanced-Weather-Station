@@ -14,7 +14,11 @@ The purpose of designing this project was to have the most accurate weather info
 
 For the few who want to build this themselves, there will be a bit of hand wiring that will have to happen. For this wiring, you will need 10 conductors for the direction sensor, 3 conductors for the temp/humidity sensor, 3 for the wind speed sensor, and 3 for the precipitation module. If you purchase enough, you should be able to use the extra ethercon cable for those conductors. When wiring, take your time, be patient with yourself, and have fun!
 
+[![View PCB on KiCanvas](https://hack.club/pcb-badge)](https://kicanvas.org/?repo=https://github.com/<OWNER>/<REPOSITORY>/tree/main/pcb)
+
 <img width="1085" height="722" alt="Modules" src="https://github.com/user-attachments/assets/f3f436d7-fd7a-445a-b18b-f5eb0f857d06" />
+
+
 
 Wiring Diagram:
 
